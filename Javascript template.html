@@ -24,6 +24,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      font-family: 'Courier New', Courier, monospace;
       
     }
 
@@ -34,15 +35,33 @@
       font-size: 30px;
     }
 
+    .button {
+      padding: 10px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
     .container {
       z-index: 1;
+    
 
     }
 
-    #textBox, #output {
-      margin: 50px;
-      width: 200px;
-      height: 100px;
+   .key-p {
+      text-align: center;
+      max-width: 500px;
+    }
+
+    #keylog, #output1 {
+      width: 500px;
+      height: 50px;
+      padding: 10px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 30px;
+      }
+
+    #bigInput, #output2 {
+      width: 500px;
+      height: 50px;
       padding: 10px;
       font-family: 'Courier New', Courier, monospace;
       font-size: 30px;
@@ -52,20 +71,28 @@
 </head>
 <body>
   <div class="container"></div>
-    <button>Update</button>
-    <input id="textBox" type="text"></input>
-    <div id="output"></div>
+    <button>Add Pretty Background</button>
+    <p class="key-p">Type here and my code will record your keystrokes.</p>
+    <input id="keylog" type="text"></input>
+    <div id="output1"></div>
   </div>
+  <br>
+  <div class="container"></div>
+  <p class="key-p">Now enter a series of numbers (one at a time) and my code will tell you which number is biggest.</p>
+  <input id="bigInput" type="text" name="numArray[]"></input>
+  <br>
+  <input class="button" type="button" value="SAVE NUMBER" onclick="addTo()" value="Add">
+  <div id="output2"></div>
+</div>
+
   <canvas>
   </canvas>
 
-
-
   <script>
-    const textBox = document.querySelector("#textBox");
-    const output = document.querySelector("#output");
+    const textBox = document.querySelector("#keylog");
+    const output = document.querySelector("#output1");
 
-    textBox.addEventListener('keydown', (event) => output.textContent = `You pressed "${event.key}".`);
+    textBox.addEventListener('keydown', (event) => output1.textContent = `You pressed "${event.key}"`);
 
   </script>
   <script>
@@ -124,6 +151,21 @@
     for (let i = num; i >= 1; i--)
     console.log(i);
   }
+</script>
+<script>
+
+  let myarr = []; 
+  let result = document.querySelector("#output2");
+ 
+  function addTo() { 
+    myarr.push(document.getElementById("bigInput").value); 
+    myarr = myarr.sort((a,b) => a-b);
+    console.log(myarr); 
+    let result = myarr.slice(-1);
+    output2.textContent = `The biggest number so far is: ${result}`;
+ } 
+
+</script>
   </script>
   </body>
 </html>
