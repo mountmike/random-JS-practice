@@ -10,30 +10,65 @@
     }
 
     canvas {
-      display: block;
+      position: absolute;
+      z-index: -1;
+      bottom: 0;
+   
+
     }
 
     body {
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      
     }
 
     button {
-      position: absolute;
-      top: 50px;
-      left: 50px;
+      margin:50px;
       padding: 10px;
       font-family: 'Courier New', Courier, monospace;
       font-size: 30px;
     }
+
+    .container {
+      z-index: 1;
+
+    }
+
+    #textBox, #output {
+      margin: 50px;
+      width: 200px;
+      height: 100px;
+      padding: 10px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 30px;
+      }
+    
   </style>
 </head>
 <body>
-  <button>Update</button>
+  <div class="container"></div>
+    <button>Update</button>
+    <input id="textBox" type="text"></input>
+    <div id="output"></div>
+  </div>
+  <canvas>
+  </canvas>
 
-  <canvas></canvas>
 
 
-    <script>
+  <script>
+    const textBox = document.querySelector("#textBox");
+    const output = document.querySelector("#output");
+
+    textBox.addEventListener('keydown', (event) => output.textContent = `You pressed "${event.key}".`);
+
+  </script>
+  <script>
     const btn = document.querySelector('button');
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d');
@@ -60,11 +95,29 @@
 
     btn.addEventListener('click',draw);
 
-    </script>
-
-
+  </script>
   <script>
-    // Your JavaScript goes here! 
- 
-</body>
+  // Your JavaScript goes here! //
+  function add7(num) {
+    return num + 7;
+  }
+
+  function multiply(a, b) {
+    return a * b;
+  }
+
+  function capitalise(string) {
+    const lowercase = string.toLowerCase();
+    return lowercase.charAt(0).toUpperCase() + lowercase.slice(1);
+  }
+
+  function lastLetter(string) {
+    return string.slice(-1);
+  }
+
+  function randomIdea() {
+    
+  }
+  </script>
+  </body>
 </html>
