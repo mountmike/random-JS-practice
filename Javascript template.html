@@ -29,10 +29,10 @@
     }
 
     button {
-      margin:50px;
+      margin: 20px;
       padding: 10px;
       font-family: 'Courier New', Courier, monospace;
-      font-size: 30px;
+      font-size: 20px;
     }
 
     .button {
@@ -42,6 +42,7 @@
 
     .container {
       z-index: 1;
+      display: flex;
     
 
     }
@@ -59,14 +60,35 @@
       font-size: 30px;
       }
 
-    #bigInput, #output2 {
-      width: 500px;
+    #bigInput {
+      width: 200px;
       height: 50px;
       padding: 10px;
       font-family: 'Courier New', Courier, monospace;
       font-size: 30px;
       }
+
+    #output2 {
+      width: 500px;
+      height: 50px;
+      padding: 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .lovebutton {
+      background-color: pink;
+      padding: 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 45px;
+      border-radius: 100px;
+      width: 200px;
+      height: 200px;
+  
     
+    }
+
   </style>
 </head>
 <body>
@@ -83,6 +105,14 @@
   <br>
   <input class="button" type="button" value="SAVE NUMBER" onclick="addTo()" value="Add">
   <div id="output2"></div>
+</div>
+<p class="love-p"><i>Lolo's daily word of encouragement:</i></p>
+<br>
+<div class="container">
+  <div class="love-container"></div>
+  <input class="lovebutton" type="button" value="PRESS" onclick="makeLove()" value="">
+  <div id="loveoutput"></div>
+    </div>
 </div>
 
   <canvas>
@@ -162,8 +192,15 @@
     myarr = myarr.sort((a,b) => a-b);
     console.log(myarr); 
     let result = myarr.slice(-1);
-    output2.textContent = `The biggest number so far is: ${result}`;
+    output2.textContent = `Biggest number so far: ${result}`;
  } 
+ 
+const loveArray = ["When I think about you I touch myself", "You're the bomb dot com", "I love you more than icecream", "You're a sexy slut", "I think you're the most beautiful woman alive", "Your hard work does not go unoticed <3", "Without you my life is completely empty", "If you're a bird then I'm a bird", "I can't wait to grow old with you", "You have such a kind face :)"];
+
+function makeLove() {
+  num = Math.floor(Math.random() * 9);
+  loveoutput.textContent = loveArray[num];
+}
 
 </script>
   </script>
