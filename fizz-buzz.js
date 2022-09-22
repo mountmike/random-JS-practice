@@ -35,8 +35,26 @@ heading3.style.color = "blue";
 divContainer.style.cssText = "background-color: pink; border: 3px black solid";
 
 
+const btn1 = document.querySelector('#btn1');
+btn1.onclick = (basicAlert);
 
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', function(e) {
+  e.target.style.background = 'blue';
+});
 
+function basicAlert() {
+  alert("Hello World");
+}
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+
+  button.addEventListener('click', () => {
+    alert(button.id);
+  });
+});
 
 /*
 
